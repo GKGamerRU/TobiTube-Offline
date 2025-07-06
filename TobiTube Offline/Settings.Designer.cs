@@ -191,9 +191,9 @@
             this.checkBox4.ForeColor = System.Drawing.Color.Gray;
             this.checkBox4.Location = new System.Drawing.Point(167, 311);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(174, 31);
+            this.checkBox4.Size = new System.Drawing.Size(81, 31);
             this.checkBox4.TabIndex = 4;
-            this.checkBox4.Text = "Русский (Московия)";
+            this.checkBox4.Text = "Русский";
             this.checkBox4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox4.UseVisualStyleBackColor = false;
             this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
@@ -206,7 +206,7 @@
             this.checkBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.checkBox5.ForeColor = System.Drawing.Color.Gray;
-            this.checkBox5.Location = new System.Drawing.Point(347, 311);
+            this.checkBox5.Location = new System.Drawing.Point(254, 311);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(111, 31);
             this.checkBox5.TabIndex = 5;

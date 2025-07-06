@@ -37,6 +37,12 @@ namespace TobiTube_Offline.Pages
         public bool TryExecuteCommand(string command, ref Page result)
         {
             if (command == null) return false;
+            switch (command.ToLower())
+            {
+                case "/legacysettings": new Settings().Show(Form1.Instance); return true;
+                default: break;
+            }
+
             if (Pages.ContainsKey(command))
             {
                 result = Pages[command];
@@ -46,6 +52,7 @@ namespace TobiTube_Offline.Pages
             return false;
         }
 
+        public readonly List<string> OtherCommands = new List<string> { "/legacysettings" };
         public Dictionary<string, Page> Pages = new Dictionary<string, Page>();
     }
 }

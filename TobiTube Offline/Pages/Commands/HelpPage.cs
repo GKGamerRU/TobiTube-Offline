@@ -32,7 +32,11 @@ namespace TobiTube_Offline.Pages
                 y += 36;
                 e.DrawString(command, font, new SolidBrush(ThemeSystem.CurrentTheme["TextColor"]), x, y);
             }
-
+            foreach (var command in TobiTubeAPI.commandsPages.OtherCommands)
+            {
+                y += 36;
+                e.DrawString(command, font, new SolidBrush(ThemeSystem.CurrentTheme["TextColor"]), x, y);
+            }
             ApplyResult(targeted);
 
             if (y + MainPage_ScrollBar.Value < MainPage.Height) { MainPage_ScrollBar.Visible = false; } else { MainPage_ScrollBar.Visible = true; }
