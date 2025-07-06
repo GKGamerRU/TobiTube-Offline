@@ -21,9 +21,10 @@ TobiTube is a desktop video player designed for enjoying your locally stored vid
 
 ## Getting Started
 
-1.  **Download:**  [Latest stable version](https://github.com/GKGamerRU/TobiTube-Offline/releases)
-2.  **Installation:**  Simply run the downloaded executable.
-3.  **Usage:**  Add your video folders to the settings and start watching!
+1.  [**Download VLC**](https://www.videolan.org/vlc/#download)
+2.  **Download:**  [Latest stable version](https://github.com/GKGamerRU/TobiTube-Offline/releases)
+3.  **Installation:**  Simply run the downloaded executable.
+4.  **Usage:**  Add your video folders to the settings and start watching!
 
 ## License
 
