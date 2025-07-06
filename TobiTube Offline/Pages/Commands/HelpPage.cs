@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TobiTube_Offline.UniControls;
 
 namespace TobiTube_Offline.Pages
 {
@@ -17,6 +18,25 @@ namespace TobiTube_Offline.Pages
             MainPage = rect;
         }
 
+        public void Init()
+        {
+            Page temp = null;
+            foreach (var command in TobiTubeAPI.commandsPages.Pages.Keys)
+            {
+                var b = new TobiTube_Offline.UniControls.Button(command, 200);
+                b.OnClick += delegate { TobiTubeAPI.commandsPages.TryExecuteCommand(command, ref temp); TobiTubeAPI.CurrentPage = temp; };
+                buttons.Add(b);
+            }
+            foreach (var command in TobiTubeAPI.commandsPages.OtherCommands)
+            {
+                var b = new TobiTube_Offline.UniControls.Button(command, 200);
+                b.OnClick += delegate { TobiTubeAPI.commandsPages.TryExecuteCommand(command, ref temp); };
+                buttons.Add(b);
+            }
+        }
+
+        List<TobiTube_Offline.UniControls.Button> buttons = new List<TobiTube_Offline.UniControls.Button>();
+
         Font font = new Font("Segoe UI", 18);
         public override void Redraw(Graphics e, Point Target, bool Click)
         {
@@ -27,15 +47,10 @@ namespace TobiTube_Offline.Pages
             e.DrawString($"Help Page", font, new SolidBrush(ThemeSystem.CurrentTheme["TextColor"]), x, y);
             y += 36;
 
-            foreach(var command in TobiTubeAPI.commandsPages.Pages.Keys)
+            foreach(var but in buttons)
             {
+                DrawControl(Target, but, e, x, y,Click, ref targeted);
                 y += 36;
-                e.DrawString(command, font, new SolidBrush(ThemeSystem.CurrentTheme["TextColor"]), x, y);
-            }
-            foreach (var command in TobiTubeAPI.commandsPages.OtherCommands)
-            {
-                y += 36;
-                e.DrawString(command, font, new SolidBrush(ThemeSystem.CurrentTheme["TextColor"]), x, y);
             }
             ApplyResult(targeted);
 

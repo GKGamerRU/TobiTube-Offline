@@ -230,6 +230,7 @@ namespace TobiTube_Offline
             {
                 AllPages.Add(page.GetType(), page);
             }
+            GetPage<HelpPage>().Init();
 
             LoadPaths();
             SearchedWorlds.LoadWords();
