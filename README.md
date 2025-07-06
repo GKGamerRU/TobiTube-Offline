@@ -1,7 +1,5 @@
 # TobiTube - Your Local Video Hub
 
-[![Build Status](Release)](https://github.com/GKGamerRU/TobiTube-Offline/releases)
-
 TobiTube is a desktop video player designed for enjoying your locally stored video files.  It mimics the feel of a video hosting platform, offering smart search, personalized recommendations, and series management – all without needing an internet connection.
 
 ## Key Features
@@ -23,7 +21,7 @@ TobiTube is a desktop video player designed for enjoying your locally stored vid
 
 ## Getting Started
 
-1.  **Download:**  [Link to Download (https://github.com/GKGamerRU/TobiTube-Offline/releases)]
+1.  **Download:**  [Latest stable version](https://github.com/GKGamerRU/TobiTube-Offline/releases)
 2.  **Installation:**  Simply run the downloaded executable.
 3.  **Usage:**  Add your video folders to the settings and start watching!
 
