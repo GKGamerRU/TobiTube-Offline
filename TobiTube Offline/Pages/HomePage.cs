@@ -76,6 +76,7 @@ namespace TobiTube_Offline.Pages
             DrawControl(Target, first, e, x, y, Click, ref targeted);
             y += first.Scale.Height;
             y += 18;
+
             e.DrawString(BEST_VIDEOS, new Font("Segoe UI", 18), new SolidBrush(ThemeSystem.CurrentTheme["TextColor"]), x, y);
             y += 36;
 

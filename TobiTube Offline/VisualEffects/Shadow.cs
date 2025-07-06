@@ -17,6 +17,7 @@ namespace TobiTube_Offline.VisualEffects
                 gfx.DrawPath(pen, Shape.GetRoundedRectagle(30, 30, scale.Width, scale.Height));
                 pen.Width /= 1.25f;
             }
+
             gfx.FillPath(Brushes.Transparent, Shape.GetRoundedRectagle(30, 30, scale.Width, scale.Height));
             return highlight;
         }
