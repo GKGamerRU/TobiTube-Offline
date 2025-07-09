@@ -79,6 +79,11 @@ namespace TobiTube_Offline
             
             timeBar = new TimeBar(pictureBox3);
             timeBar.OnTimeChanged += delegate (float time) { vlcControl1.Time = (long)time; };
+            RandomFrame_Button.Click += delegate {
+                timeBar.Value = Utils.RandomNumberGenerator.GetRandomInt(0, (int)timeBar.MaxValue);
+                timeBar.Draw();
+                vlcControl1.Time = (long)timeBar.Value;
+            };
         }
 
         protected override void OnMouseWheel(MouseEventArgs e)
@@ -243,7 +248,7 @@ namespace TobiTube_Offline
             }
             if (e.KeyCode == Keys.Enter)
             {
-                if (VideoPage_Panel.Visible)
+                if (VideoPage_Panel.Visible && TobiTubeAPI.commandsPages.OtherCommands.Contains(textBox1.Text.ToLower()) == false)
                 {
                     VideoPage_Panel.Visible = false;
                     vlcControl1.Stop();

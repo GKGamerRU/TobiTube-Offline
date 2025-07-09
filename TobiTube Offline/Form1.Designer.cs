@@ -58,6 +58,7 @@
             this.MainPage_ScrollBar = new System.Windows.Forms.VScrollBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.MainPage = new System.Windows.Forms.PictureBox();
+            this.RandomFrame_Button = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.VideoPage_Panel.SuspendLayout();
@@ -174,6 +175,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.VideoPage_Panel.AutoScroll = true;
             this.VideoPage_Panel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.VideoPage_Panel.Controls.Add(this.RandomFrame_Button);
             this.VideoPage_Panel.Controls.Add(this.vScrollBar1);
             this.VideoPage_Panel.Controls.Add(this.panel2);
             this.VideoPage_Panel.Controls.Add(this.pictureBox2);
@@ -482,6 +484,18 @@
             this.MainPage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MainPage_MouseClick);
             this.MainPage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainPage_MouseMove);
             // 
+            // RandomFrame_Button
+            // 
+            this.RandomFrame_Button.BackColor = System.Drawing.Color.Silver;
+            this.RandomFrame_Button.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.RandomFrame_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RandomFrame_Button.Location = new System.Drawing.Point(20, 10);
+            this.RandomFrame_Button.Name = "RandomFrame_Button";
+            this.RandomFrame_Button.Size = new System.Drawing.Size(35, 30);
+            this.RandomFrame_Button.TabIndex = 7;
+            this.RandomFrame_Button.Text = "Rnd";
+            this.RandomFrame_Button.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -550,6 +564,7 @@
         private System.Windows.Forms.Label AuthorLabel;
         private System.Windows.Forms.PictureBox pictureBox5;
         public System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button RandomFrame_Button;
     }
 }
 
