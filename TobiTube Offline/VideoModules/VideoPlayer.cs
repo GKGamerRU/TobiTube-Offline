@@ -38,6 +38,8 @@ namespace TobiTube_Offline.VideoModules
             Attach.Click += delegate { ActiForm(); };
             Attach.TopMost = true;
             Attach.Show(senderForm);
+            Attach.KeyPreview = true;
+            Attach.KeyDown += KeyDown;
             ChangeAttach();
         }
 
