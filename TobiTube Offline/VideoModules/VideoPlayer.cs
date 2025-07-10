@@ -27,7 +27,7 @@ namespace TobiTube_Offline.VideoModules
             senderForm.Activated += SenderForm_GotFocus;
 
             Attach.Activated += delegate { Attach.Visible = true; };
-            Attach.LostFocus += delegate { if ((senderForm.ContainsFocus == false && form?.ContainsFocus == false) || (senderForm.ContainsFocus == false && form == null))Attach.Visible = false;/* else ActiForm();*/ };
+            Attach.LostFocus += delegate { if ((senderForm.ContainsFocus == false && form?.ContainsFocus == false) || (senderForm.ContainsFocus == false && form == null))Attach.Visible = false; else ActiForm(); };
             VideoOwner.LocationChanged += delegate { ChangeAttach(); };
 
             Attach.ShowInTaskbar = false;

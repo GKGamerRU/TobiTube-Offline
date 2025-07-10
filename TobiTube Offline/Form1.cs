@@ -304,6 +304,7 @@ namespace TobiTube_Offline
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+           //if(MouseButtons == MouseButtons.Middle) { MessageBox.Show("DD"); }; - Этот код заменит логику обработки нажатий
             if (vlcControl1.IsPlaying) // ContainsFocus
             {
                 timeBar.Update(vlcControl1.Time);
