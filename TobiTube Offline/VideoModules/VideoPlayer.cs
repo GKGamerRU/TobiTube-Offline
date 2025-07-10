@@ -7,7 +7,7 @@ namespace TobiTube_Offline.VideoModules
 {
     public class VideoPlayer
     {
-        Form Attach = new Form();
+        public Form Attach = new Form();
         Form senderForm;
 
         public VideoPlayer(Form _sender, VlcControl _videoPlayer, Control videoOwner, Control area, PercentBar _percentBar)
@@ -27,7 +27,7 @@ namespace TobiTube_Offline.VideoModules
             senderForm.Activated += SenderForm_GotFocus;
 
             Attach.Activated += delegate { Attach.Visible = true; };
-            Attach.LostFocus += delegate { if(senderForm.ContainsFocus == false && (form != null && form.ContainsFocus == false))Attach.Visible = false; else ActiForm(); };
+            Attach.LostFocus += delegate { if ((senderForm.ContainsFocus == false && form?.ContainsFocus == false) || (senderForm.ContainsFocus == false && form == null))Attach.Visible = false; else ActiForm(); };
             VideoOwner.LocationChanged += delegate { ChangeAttach(); };
 
             Attach.ShowInTaskbar = false;
@@ -111,7 +111,7 @@ namespace TobiTube_Offline.VideoModules
 
         private Control Area, VideoOwner;
         private VlcControl videoPlayer;
-        private Form form;
+        public Form form;
         private PercentBar percentBar;
 
         bool fullScreen = false;
