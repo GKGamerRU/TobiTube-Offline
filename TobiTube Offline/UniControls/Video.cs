@@ -76,10 +76,10 @@ namespace TobiTube_Offline.UniControls
             isInitialising = true;
             Bitmap shellThumb = new Bitmap(1, 1);
 
-            await Task.Run(() => {
+            await Task.Run(async () => {
                 try
                 {
-                    ShellFile shellFile = ShellFile.FromFilePath(Path);
+                    using ShellFile shellFile = ShellFile.FromFilePath(Path);
                     shellThumb = shellFile.Thumbnail.LargeBitmap;
 
                     Duration = TimeSpan.FromTicks((long)(ulong)shellFile.Properties.System.Media.Duration.ValueAsObject);
