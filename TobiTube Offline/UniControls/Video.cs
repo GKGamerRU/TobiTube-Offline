@@ -1,13 +1,11 @@
 ﻿using Microsoft.WindowsAPICodePack.Shell;
 using Microsoft.WindowsAPICodePack.Shell.PropertySystem;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using ThumbnailGenerator;
 using TobiTube_Offline.VisualEffects;
 
 namespace TobiTube_Offline.UniControls
@@ -76,15 +74,19 @@ namespace TobiTube_Offline.UniControls
             isInitialising = true;
             Bitmap shellThumb = new Bitmap(1, 1);
 
-            await Task.Run(async () => {
+            await Task.Run(() =>
+            {
                 try
                 {
-                    using ShellFile shellFile = ShellFile.FromFilePath(Path);
-                    shellThumb = shellFile.Thumbnail.LargeBitmap;
+                    using (ShellFile shellFile = ShellFile.FromFilePath(Path))
+                    {
+                        Duration = TimeSpan.FromTicks((long)(ulong)shellFile.Properties.System.Media.Duration.ValueAsObject);
+                        FrameRate = (int)(uint)shellFile.Properties.System.Video.FrameRate.ValueAsObject;
+                        FrameRate /= 1000;
+                        shellThumb = shellFile.Thumbnail.LargeBitmap;
+                    }
+                    shellThumb = WindowsThumbnailProvider.GetThumbnail(Path, 190, 100, ThumbnailOptions.ThumbnailOnly);
 
-                    Duration = TimeSpan.FromTicks((long)(ulong)shellFile.Properties.System.Media.Duration.ValueAsObject);
-                    FrameRate = (int)(uint)shellFile.Properties.System.Video.FrameRate.ValueAsObject;
-                    FrameRate /= 1000;
                 }
                 catch { shellThumb = TobiTube_Offline.Properties.Resources.NoLogotype; isInitialising = false; }
             });

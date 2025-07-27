@@ -84,7 +84,7 @@ namespace TobiTube_Offline
                 AllVideos.Add(temp);
             }
         }
-        public static void LoadLogotype(List<Video> videos)
+        public static async void LoadLogotype(List<Video> videos)
         {
             List<Task> asks = new List<Task>();
             foreach (var panel in videos)
@@ -92,6 +92,7 @@ namespace TobiTube_Offline
                 asks.Add(panel.GenerateIcon());
             }
             Task.WaitAll(asks.ToArray(), 10);
+            await Task.Yield();
         }
         public static async void LoadLogotype(List<Video> videos, Action OnComplete)
         {
@@ -100,9 +101,9 @@ namespace TobiTube_Offline
             {
                 asks.Add(panel.GenerateIcon());
             }
-            while(!Task.WaitAll(asks.ToArray(), 10))
+            while (!Task.WaitAll(asks.ToArray(), 10))
             {
-                await Task.Delay(10);
+                await Task.Delay(100);
             }
             OnComplete();
         }
