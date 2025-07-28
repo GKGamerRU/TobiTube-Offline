@@ -182,7 +182,7 @@ namespace TobiTube_Offline
                         MainPage_ScrollBar.Value = 0;
                     }
 
-                    TobiTubeAPI.ChangeChannel(video.Channel, video.Channel);
+                    TobiTubeAPI.ChangeChannel(video.Channel.ToLower(), video.Channel);
                     searchPage.ChangeTitle(video.Channel);
                     MainPage.Invalidate();
                 }

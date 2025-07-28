@@ -273,7 +273,7 @@ namespace TobiTube_Offline
             var search = GetPage<ChannelPage>();
 
             {
-                search.Value = text;
+                search.Value = channel;
                 CurrentPage = search;
 
                 search.Result = AllVideos.Where(video => Algorithms.SearchPattern(video.Path, text, video) != 0 && (video.Channel == channel || channel == null)).ToList();
