@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
@@ -83,16 +82,6 @@ namespace TobiTube_Offline
                 temp.Channel = channel;
                 AllVideos.Add(temp);
             }
-        }
-        public static async void LoadLogotype(List<Video> videos)
-        {
-            List<Task> asks = new List<Task>();
-            foreach (var panel in videos)
-            {
-                asks.Add(panel.GenerateIcon());
-            }
-            Task.WaitAll(asks.ToArray(), 10);
-            await Task.Yield();
         }
         public static async void LoadLogotype(List<Video> videos, Action OnComplete)
         {
@@ -251,7 +240,6 @@ namespace TobiTube_Offline
             }
             else
             {
-                //if (text == "channel") text = "";
                 search.Value = text;
 
                 if (commandsPages.TryExecuteCommand(text, ref CurrentPage))

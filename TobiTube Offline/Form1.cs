@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TobiTube_Offline.Configs;
 using TobiTube_Offline.Pages;
 using TobiTube_Offline.UniControls;
 using TobiTube_Offline.VideoModules;
-using Vlc.DotNet.Core;
 
 namespace TobiTube_Offline
 {
@@ -201,10 +196,8 @@ namespace TobiTube_Offline
             TobiTubeAPI.CurrentPage = TobiTubeAPI.GetPage<SettingsPage>();
             MainPage.Invalidate();
         }
-        
-        Pen HighLite_prefab = new Pen(Color.DarkOrange,2);
-        Point Target = new Point();
 
+        Point Target = new Point();
         public int FPS { get; protected set; } = 0;
         int RealTimeFPS, RealTime = 0; public static bool ShowFPS = false;
         private void MainPage_Paint(object sender, PaintEventArgs e)
@@ -327,8 +320,6 @@ namespace TobiTube_Offline
 
                     if (val != VideoController.Visible)
                         VideoController.Visible = val;
-
-                    //videoPlayer.ChangeAttach();
                 }
                 else
                 {
@@ -378,10 +369,6 @@ namespace TobiTube_Offline
                 button4.BackgroundImage = Properties.Resources.VolumeZero;
             }
         }
-        private void vlcControl1_DoubleClick(object sender, EventArgs e)
-        {
-        }
-
         private void VideoController_VisibleChanged(object sender, EventArgs e)
         {
             if (VideoController.Visible)
@@ -403,12 +390,6 @@ namespace TobiTube_Offline
             searchPage.ChangeTitle(AuthorLabel.Text);
             MainPage.Invalidate();
         }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void VideoPage_Panel_Scroll(object sender, ScrollEventArgs e)
         {
             videoPlayer.ChangeAttach();
@@ -419,20 +400,14 @@ namespace TobiTube_Offline
             string value = button5.Text.TrimEnd('x');
             float speed = Convert.ToSingle(value);
 
-            if (speed >= 2)
-            {
-                speed = 0;
-            }
+            if (speed >= 2) speed = 0;
 
             if (e.Button == MouseButtons.Left)
                 speed += 0.25f;
             else if (e.Button == MouseButtons.Right)
                 speed -= 0.25f;
 
-            if (speed < 0.25f)
-            {
-                speed = 0.25f;
-            }
+            if (speed < 0.25f) speed = 0.25f;
 
             button5.Text = speed + "x";
             vlcControl1.Rate = speed;

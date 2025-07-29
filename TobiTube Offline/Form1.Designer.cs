@@ -37,6 +37,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.VideoPage_Panel = new System.Windows.Forms.Panel();
+            this.RandomFrame_Button = new System.Windows.Forms.Button();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.panel2 = new System.Windows.Forms.Panel();
             this.AuthorLabel = new System.Windows.Forms.Label();
@@ -58,7 +59,6 @@
             this.MainPage_ScrollBar = new System.Windows.Forms.VScrollBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.MainPage = new System.Windows.Forms.PictureBox();
-            this.RandomFrame_Button = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.VideoPage_Panel.SuspendLayout();
@@ -188,6 +188,18 @@
             this.VideoPage_Panel.Visible = false;
             this.VideoPage_Panel.Scroll += new System.Windows.Forms.ScrollEventHandler(this.VideoPage_Panel_Scroll);
             // 
+            // RandomFrame_Button
+            // 
+            this.RandomFrame_Button.BackColor = System.Drawing.Color.Silver;
+            this.RandomFrame_Button.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.RandomFrame_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RandomFrame_Button.Location = new System.Drawing.Point(20, 10);
+            this.RandomFrame_Button.Name = "RandomFrame_Button";
+            this.RandomFrame_Button.Size = new System.Drawing.Size(35, 30);
+            this.RandomFrame_Button.TabIndex = 7;
+            this.RandomFrame_Button.Text = "Rnd";
+            this.RandomFrame_Button.UseVisualStyleBackColor = false;
+            // 
             // vScrollBar1
             // 
             this.vScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -210,7 +222,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(477, 97);
             this.panel2.TabIndex = 1;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // AuthorLabel
             // 
@@ -450,7 +461,6 @@
             this.vlcControl1.Text = "vlcControl1";
             this.vlcControl1.VlcLibDirectory = ((System.IO.DirectoryInfo)(resources.GetObject("vlcControl1.VlcLibDirectory")));
             this.vlcControl1.VlcMediaplayerOptions = null;
-            this.vlcControl1.DoubleClick += new System.EventHandler(this.vlcControl1_DoubleClick);
             this.vlcControl1.Layout += new System.Windows.Forms.LayoutEventHandler(this.vlcControl1_Layout);
             // 
             // MainPage_ScrollBar
@@ -483,18 +493,6 @@
             this.MainPage.Paint += new System.Windows.Forms.PaintEventHandler(this.MainPage_Paint);
             this.MainPage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MainPage_MouseClick);
             this.MainPage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainPage_MouseMove);
-            // 
-            // RandomFrame_Button
-            // 
-            this.RandomFrame_Button.BackColor = System.Drawing.Color.Silver;
-            this.RandomFrame_Button.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.RandomFrame_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RandomFrame_Button.Location = new System.Drawing.Point(20, 10);
-            this.RandomFrame_Button.Name = "RandomFrame_Button";
-            this.RandomFrame_Button.Size = new System.Drawing.Size(35, 30);
-            this.RandomFrame_Button.TabIndex = 7;
-            this.RandomFrame_Button.Text = "Rnd";
-            this.RandomFrame_Button.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 

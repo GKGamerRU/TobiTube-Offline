@@ -1,5 +1,4 @@
 ﻿using Microsoft.WindowsAPICodePack.Shell;
-using Microsoft.WindowsAPICodePack.Shell.PropertySystem;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -50,16 +49,6 @@ namespace TobiTube_Offline.UniControls
 
             RepaintBox();
         }
-
-        private static TimeSpan GetVideoDuration(string filePath)
-        {
-            using (var shell = ShellObject.FromParsingName(filePath))
-            {
-                IShellProperty prop = shell.Properties.System.Media.Duration;
-                var t = (ulong)prop.ValueAsObject;
-                return TimeSpan.FromTicks((long)t);
-            }
-        }
         public static string GetDurationString(TimeSpan duration)
         {
             string hh = duration.Hours != 0 ? duration.Hours + ":" : "";
@@ -100,7 +89,6 @@ namespace TobiTube_Offline.UniControls
             isInitialising = false;
             Inited = true;
 
-            // Duration = GetVideoDuration(Path);
             await Task.Run(() => { isWhite = ThemeSystem.IsBlack; RepaintBox(); });
         }
 
@@ -109,10 +97,10 @@ namespace TobiTube_Offline.UniControls
         {
             if (isTargeted) return;
             e.SmoothingMode = SmoothingMode.HighSpeed;
-            //e.DrawString($"{SearchRate} - SearchRate", new Font("Segoe UI", 12), new SolidBrush(Color.Red), new RectangleF(x + 5, y + 170, 190, 90));
             
             if (isWhite != ThemeSystem.IsBlack) { isWhite = ThemeSystem.IsBlack; RepaintBox(); }
             e.DrawImageUnscaled(DrawBox, x, y);
+            //e.DrawString($"{SearchRate} - SearchRate", new Font("Segoe UI", 12), new SolidBrush(Color.Red), new RectangleF(x + 5, y + 160, 190, 90));
         }
         public override void PostDraw(int x, int y, Graphics e)
         {

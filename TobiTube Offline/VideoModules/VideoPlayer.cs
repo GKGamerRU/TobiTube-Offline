@@ -82,7 +82,7 @@ namespace TobiTube_Offline.VideoModules
             {
                 Point p = new Point(VideoOwner.Parent.Left + VideoOwner.Left + senderForm.Left, senderForm.Top + VideoOwner.Parent.Top + VideoOwner.Top ); //- ((Panel)Area).VerticalScroll.Value
                 p = senderForm.PointToScreen(VideoOwner.Location);
-                p.Y += Area.Top;// + ((Panel)Area).VerticalScroll.Value;
+                p.Y += Area.Top;
                 if(VideoOwner.Top < 0)
                 {
                     p.Y += -VideoOwner.Top;
@@ -157,7 +157,6 @@ namespace TobiTube_Offline.VideoModules
                 form.FormClosing += delegate { form.Visible = false; IsFullScreen = false; };
                 Form owner = Area.FindForm();
                 form.Show(owner);
-                //Attach.Owner = form;
             }
             else
             {
@@ -175,7 +174,6 @@ namespace TobiTube_Offline.VideoModules
 
                 Area.FindForm().Activate();
                 form = null;
-                //Attach.Owner = senderForm;
             }
             ChangeAttach();
         }
