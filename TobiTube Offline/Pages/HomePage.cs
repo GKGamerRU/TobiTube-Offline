@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -35,8 +34,6 @@ namespace TobiTube_Offline.Pages
                 Result.Sort((Video a, Video b) => b.SearchRate - a.SearchRate);
                 var videos = Result.Count > 1 ? Result : TobiTubeAPI.AllVideos;
 
-                //var s = new Random().Next(0, videos.Count);
-                //Utils.RandomNumberGenerator
                 var s = Utils.RandomNumberGenerator.GetRandomInt(0, videos.Count - 1);
                 var p = TobiTubeAPI.GetPage<VideoPage>();
                 for(int i = 0; i < p.Result.Count; i++)
