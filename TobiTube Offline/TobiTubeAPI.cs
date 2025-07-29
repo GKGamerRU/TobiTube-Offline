@@ -22,6 +22,10 @@ namespace TobiTube_Offline
         public static Page CurrentPage;
 
         public static CommandsPages commandsPages;
+        public static Dictionary<string, bool> GlobalExperimentOptions = new Dictionary<string, bool>()
+        {
+            {"showSearchRate", false }
+        };
 
         public static void LoadHistory()
         {

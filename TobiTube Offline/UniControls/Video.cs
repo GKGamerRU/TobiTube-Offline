@@ -100,7 +100,9 @@ namespace TobiTube_Offline.UniControls
             
             if (isWhite != ThemeSystem.IsBlack) { isWhite = ThemeSystem.IsBlack; RepaintBox(); }
             e.DrawImageUnscaled(DrawBox, x, y);
-            //e.DrawString($"{SearchRate} - SearchRate", new Font("Segoe UI", 12), new SolidBrush(Color.Red), new RectangleF(x + 5, y + 160, 190, 90));
+
+            if (TobiTubeAPI.GlobalExperimentOptions["showSearchRate"])
+                e.DrawString($"{SearchRate} - SearchRate", new Font("Segoe UI", 12), new SolidBrush(Color.Red), new RectangleF(x + 5, y + 160, 190, 90));
         }
         public override void PostDraw(int x, int y, Graphics e)
         {

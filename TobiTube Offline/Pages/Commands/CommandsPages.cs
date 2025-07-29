@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 using TobiTube_Offline.Interfaces;
 
@@ -39,7 +35,8 @@ namespace TobiTube_Offline.Pages
             if (command == null) return false;
             switch (command.ToLower())
             {
-                case "/legacysettings": new Settings().Show(Form1.Instance); return true;
+                case "/legacy_settings": new Settings().Show(Form1.Instance); return true;
+                case "/search_rate": TobiTubeAPI.GlobalExperimentOptions["showSearchRate"] = !TobiTubeAPI.GlobalExperimentOptions["showSearchRate"]; return true;
                 default: break;
             }
 
@@ -52,7 +49,7 @@ namespace TobiTube_Offline.Pages
             return false;
         }
 
-        public readonly List<string> OtherCommands = new List<string> { "/legacysettings" };
+        public readonly List<string> OtherCommands = new List<string> { "/legacy_settings", "/search_rate" };
         public Dictionary<string, Page> Pages = new Dictionary<string, Page>();
     }
 }
