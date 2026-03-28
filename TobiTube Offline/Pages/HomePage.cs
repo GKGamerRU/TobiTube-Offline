@@ -4,6 +4,7 @@ using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
 using TobiTube_Offline.UniControls;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TobiTube_Offline.Pages
 {
@@ -12,6 +13,8 @@ namespace TobiTube_Offline.Pages
         public List<Video> BestVideos = new List<Video>();
 
         GradientButton first = new GradientButton("View Random Video", new Size(250,50), new LinearGradientBrush(Point.Empty, new Point(250,50), Color.DarkOrange, Color.OrangeRed));
+
+        GradientButton music = new GradientButton("Music", new Size(150, 50), new LinearGradientBrush(Point.Empty, new Point(250, 50), Color.DarkMagenta, Color.Magenta));
 
         public string BEST_VIDEOS = "Best videos";
         public string ALL_VIDEOS = "All videos";
@@ -46,6 +49,14 @@ namespace TobiTube_Offline.Pages
             };
             first.ApplyControl();
 
+            music.OnClick = () =>
+            {
+                Form1.Instance.textBox1.Text = "music - feat release theme ost lyric mix remix album audio cover";
+                TobiTubeAPI.ChangeSearch(Form1.Instance.textBox1.Text.ToLower());
+                MainPage.Invalidate();
+            };
+            music.ApplyControl();
+
             Localization_OnLanguageChange();
             Localization.OnLanguageChange += Localization_OnLanguageChange;
         }
@@ -71,6 +82,7 @@ namespace TobiTube_Offline.Pages
                 return;
             }
             DrawControl(Target, first, e, x, y, Click, ref targeted);
+            DrawControl(Target, music, e, (int)e.ClipBounds.Width - 160, y, Click, ref targeted);
             y += first.Scale.Height;
             y += 18;
 

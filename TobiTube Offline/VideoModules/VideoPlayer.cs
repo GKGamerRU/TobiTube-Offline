@@ -26,8 +26,8 @@ namespace TobiTube_Offline.VideoModules
             senderForm.Deactivate += SenderForm_LostFocus;
             senderForm.Activated += SenderForm_GotFocus;
 
-            Attach.Activated += delegate { Attach.Visible = true; };
-            Attach.LostFocus += delegate { if ((senderForm.ContainsFocus == false && form?.ContainsFocus == false) || (senderForm.ContainsFocus == false && form == null))Attach.Visible = false; else ActiForm(); };
+            Attach.Activated += delegate {/* Attach.Visible = area.Visible;*/ ChangeWidth(); };
+            Attach.LostFocus += delegate { if ((senderForm.ContainsFocus == false && form?.ContainsFocus == false) || (senderForm.ContainsFocus == false && form == null)) Attach.Visible = false; else if (area.Visible) { ActiForm(); } };
             VideoOwner.LocationChanged += delegate { ChangeAttach(); };
 
             Attach.ShowInTaskbar = false;
@@ -45,23 +45,26 @@ namespace TobiTube_Offline.VideoModules
 
         void ActiForm()
         {
-            if (form != null) form.Activate();
+            if (form != null) form.Focus();
             else
-                senderForm.Activate();
+                senderForm.Focus();
         }
         private void SenderForm_GotFocus(object sender, EventArgs e)
         {
-            Attach.Visible = Area.Visible || form != null;
+            //Attach.Visible = Area.Visible || form != null;
+            ChangeWidth();
         }
 
         private void SenderForm_LostFocus(object sender, EventArgs e)
         {
-            Attach.Visible = false;
+            //Attach.Visible = false;
+            Attach.Width = 0;
         }
 
         private void Area_VisibleChanged(object sender, EventArgs e)
         {
-            Attach.Visible = Area.Visible || form != null;
+            //Attach.Visible = Area.Visible || form != null;
+            ChangeWidth();
         }
 
         private void Sender_LocationChanged(object sender, EventArgs e)
@@ -89,13 +92,16 @@ namespace TobiTube_Offline.VideoModules
                 }
                 Attach.Location = p;
 
-                Attach.Width = VideoOwner.Width;
+                //Attach.Width = VideoOwner.Width;
+                ChangeWidth();
+
                 Attach.Height = Math.Min(VideoOwner.Top < 0 ? VideoOwner.Height - controllerSize + VideoOwner.Top : VideoOwner.Height - controllerSize, Area.Height); //- ((Panel)Area).VerticalScroll.Value;
             }
             else
             {
                 Attach.Location = new Point();
                 Attach.Size = new Size(VideoOwner.Width, VideoOwner.Height - controllerSize);
+                ChangeWidth();
             }
         }
 
@@ -188,6 +194,12 @@ namespace TobiTube_Offline.VideoModules
 
             if (e.KeyCode == Keys.Space) videoPlayer.Pause();
             if (e.KeyCode == Keys.Escape && IsFullScreen) IsFullScreen = false;
+        }
+
+        void ChangeWidth()
+        {
+            Attach.Width = (Area.Visible || form != null) && (senderForm.ContainsFocus || Attach.ContainsFocus || (form != null && form.ContainsFocus)) ? VideoOwner.Width : 0;
+            Attach.Opacity = (Area.Visible || form != null) && (senderForm.ContainsFocus || Attach.ContainsFocus || (form != null && form.ContainsFocus)) ? 0.01 : 0;
         }
 
         public void Play() { videoPlayer.Play(); }

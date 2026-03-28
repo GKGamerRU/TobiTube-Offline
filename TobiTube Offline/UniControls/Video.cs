@@ -11,6 +11,8 @@ namespace TobiTube_Offline.UniControls
 {
     public class Video : UniControl
     {
+        static StringFormat VideoName = new StringFormat() { Trimming = StringTrimming.EllipsisCharacter};
+
         public int SearchRate = 0;
         public TimeSpan Duration = new TimeSpan(0, 0, 0);
         public float FrameRate = 0;
@@ -177,7 +179,7 @@ namespace TobiTube_Offline.UniControls
             BoxDrawer.FillPath(gradient, Shape.GetRoundedRectagle(0, 0, Scale.Width, Scale.Height));
             BoxDrawer.DrawPath(new Pen(ThemeSystem.CurrentTheme["VideoColor"]), Shape.GetRoundedRectagle(0, 0, Scale.Width, Scale.Height));
 
-            BoxDrawer.DrawString(Name, new Font("Segoe UI", 10.5f), new SolidBrush(ThemeSystem.CurrentTheme["TextColor"]), new RectangleF(5, 110, 190, 70));
+            BoxDrawer.DrawString(Name, new Font("Segoe UI", 10.5f), new SolidBrush(ThemeSystem.CurrentTheme["TextColor"]), new RectangleF(5, 110, 190, 60),VideoName);
             BoxDrawer.DrawString(Date, new Font("Segoe UI", 10), ThemeSystem.IsBlack ? Brushes.SkyBlue : Brushes.DarkBlue, new RectangleF(5, 110 + 70, 190, 20));
             BoxDrawer.DrawImageUnscaled(Content, 5, 5);
 
