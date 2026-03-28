@@ -4,7 +4,6 @@ using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
 using TobiTube_Offline.UniControls;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TobiTube_Offline.Pages
 {
@@ -26,6 +25,8 @@ namespace TobiTube_Offline.Pages
             MainPage = rect;
 
             first.ForeColor = new SolidBrush(Color.White);
+            music.ForeColor = new SolidBrush(Color.White);
+
             first.OnClick = async () =>
             {
                 var Result = TobiTubeAPI.AllVideos.Where(video => Algorithms.SearchPattern(video.Path, Form1.Instance.textBox1.Text, video) != 0).ToList();
