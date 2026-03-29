@@ -54,7 +54,7 @@ namespace TobiTube_Offline.Pages
             y += Logo.Scale.Height;
 
             var t = e.MeasureString("TobiTube Release V1.4", new Font("Segoe UI", 12));
-            e.DrawString("TobiTube Release V1.2", new Font("Segoe UI", 12), new SolidBrush(ThemeSystem.CurrentTheme["TextColor"]), MainPage.Width / 2 - t.Width / 2, y);
+            e.DrawString("TobiTube Release V1.4", new Font("Segoe UI", 12), new SolidBrush(ThemeSystem.CurrentTheme["TextColor"]), MainPage.Width / 2 - t.Width / 2, y);
             y += 50;
 
             e.DrawString(ABOUT_DESCRIPTION, new Font("Segoe UI", 12), new SolidBrush(ThemeSystem.CurrentTheme["TextColor"]), new RectangleF(MainPage.Width / 2 - 150, y, 300, 250));
