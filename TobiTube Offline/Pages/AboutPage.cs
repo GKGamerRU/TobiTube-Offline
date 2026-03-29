@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TobiTube_Offline.UniControls;
 
@@ -58,7 +53,7 @@ namespace TobiTube_Offline.Pages
             DrawControl(Target, Logo, e, MainPage.Width / 2 - Logo.Scale.Width / 2, y, Click, ref targeted);
             y += Logo.Scale.Height;
 
-            var t = e.MeasureString("TobiTube Release V1.2", new Font("Segoe UI", 12));
+            var t = e.MeasureString("TobiTube Release V1.4", new Font("Segoe UI", 12));
             e.DrawString("TobiTube Release V1.2", new Font("Segoe UI", 12), new SolidBrush(ThemeSystem.CurrentTheme["TextColor"]), MainPage.Width / 2 - t.Width / 2, y);
             y += 50;
 
