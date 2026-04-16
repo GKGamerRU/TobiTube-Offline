@@ -52,7 +52,7 @@
             this.FullScreenVideo = new System.Windows.Forms.Button();
             this.StopVideoButton = new System.Windows.Forms.Button();
             this.PauseVideoButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.TimeLabel = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.PlayVideoButton = new System.Windows.Forms.Button();
             this.vlcControl1 = new Vlc.DotNet.Forms.VlcControl();
@@ -299,7 +299,7 @@
             this.VideoController.Controls.Add(this.FullScreenVideo);
             this.VideoController.Controls.Add(this.StopVideoButton);
             this.VideoController.Controls.Add(this.PauseVideoButton);
-            this.VideoController.Controls.Add(this.label1);
+            this.VideoController.Controls.Add(this.TimeLabel);
             this.VideoController.Controls.Add(this.pictureBox3);
             this.VideoController.Controls.Add(this.PlayVideoButton);
             this.VideoController.Location = new System.Drawing.Point(0, 227);
@@ -404,17 +404,18 @@
             this.PauseVideoButton.TabStop = false;
             this.PauseVideoButton.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // TimeLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Location = new System.Drawing.Point(96, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 21);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Time";
+            this.TimeLabel.AutoSize = true;
+            this.TimeLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TimeLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TimeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TimeLabel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.TimeLabel.Location = new System.Drawing.Point(96, 20);
+            this.TimeLabel.Name = "TimeLabel";
+            this.TimeLabel.Size = new System.Drawing.Size(44, 21);
+            this.TimeLabel.TabIndex = 2;
+            this.TimeLabel.Text = "Time";
             // 
             // pictureBox3
             // 
@@ -553,7 +554,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button StopVideoButton;
         private System.Windows.Forms.Button PauseVideoButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label TimeLabel;
         private System.Windows.Forms.Button FullScreenVideo;
         private System.Windows.Forms.Panel VideoBack;
         private System.Windows.Forms.Button button4;

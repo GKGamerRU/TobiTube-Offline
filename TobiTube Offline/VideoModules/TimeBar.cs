@@ -18,10 +18,14 @@ namespace TobiTube_Offline.VideoModules
 
         float percent => control.Width / MaxValue * Value;
 
+        int Totalseconds => (int)MaxValue / 1000;
         int seconds => (int)Value / 1000; 
         public int Minutes => seconds / 60;
         public int Hours => Minutes / 60;
         public int Seconds => seconds % 60;
+
+        public int LeftMinutes => (Totalseconds - seconds) / 60;
+        public int LeftSeconds => (Totalseconds - seconds) % 60;
 
         Pen backLine = new Pen(Brushes.Gray, 3);
         Pen line = new Pen(Brushes.GhostWhite, 3);

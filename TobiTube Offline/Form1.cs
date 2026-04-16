@@ -51,6 +51,7 @@ namespace TobiTube_Offline
             StopVideoButton.Click += delegate { vlcControl1.Stop(); };
             FullScreenVideo.Click += delegate { videoPlayer.IsFullScreen = !videoPlayer.IsFullScreen; };
             vlcControl1.MouseDoubleClick += delegate { videoPlayer.IsFullScreen = !videoPlayer.IsFullScreen; };
+            TimeLabel.Click += delegate { isTimeLeft = !isTimeLeft; UpdateTime(); };
 
             MainPage_ScrollBar.Scroll += delegate { MainPage.Invalidate(); };
             MainPage.SizeChanged += delegate { MainPage.Invalidate(); };
@@ -295,13 +296,16 @@ namespace TobiTube_Offline
             MainPage.Invalidate();
         }
 
+
+
+        bool isTimeLeft = false;
         private void timer1_Tick(object sender, EventArgs e)
         {
            //if(MouseButtons == MouseButtons.Middle) { MessageBox.Show("DD"); }; - Этот код заменит логику обработки нажатий
             if (vlcControl1.IsPlaying) // ContainsFocus
             {
                 timeBar.Update(vlcControl1.Time);
-                label1.Text = $"{timeBar.Minutes}:{string.Format("{0:D2}", timeBar.Seconds)}";
+                UpdateTime();
             }
             else if (AutoNext && vlcControl1.State == Vlc.DotNet.Core.Interops.Signatures.MediaStates.Ended)
             {
@@ -326,6 +330,11 @@ namespace TobiTube_Offline
                     VideoController.Visible = Cursor.Position.Y >= Screen.PrimaryScreen.Bounds.Height - VideoController.Height;
                 }
             }
+        }
+
+        private void UpdateTime()
+        {
+            TimeLabel.Text = isTimeLeft ? $"{timeBar.LeftMinutes}:{string.Format("{0:D2}", timeBar.LeftSeconds)}" : $"{timeBar.Minutes}:{string.Format("{0:D2}", timeBar.Seconds)}";
         }
 
         bool VLCInited = false;
